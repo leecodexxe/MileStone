@@ -1,0 +1,37 @@
+/* *{
+    background-color: lightblue;
+} */
+nav{
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    background-color: white;
+    margin-bottom: 10em;
+}
+nav li{
+    display: inline;
+    justify-content: space-between;
+}
+.background-img{
+    width: 100%;
+}
+.container {
+    background-image: url();
+    background-color: #cccccc; 
+    width: 1880px;
+    height: 1200px;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: 1500px 700px; 
+}
+div > img {
+    position: absolute;
+    width: 12%;
+}
+.mouse-hero{
+    left: 20%;
+    top: 43%;
+}
