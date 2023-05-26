@@ -1,37 +1,160 @@
 /* *{
     background-color: lightblue;
 } */
-nav{
-    display: flex;
-    justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
-    position: sticky;
-    top: 0px;
-    z-index: 5;
-    background-color: white;
-    margin-bottom: 10em;
+.start-menu{
+  display: none;
 }
-nav li{
-    display: inline;
-    justify-content: space-between;
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+  background-color: white;
+  margin-bottom: 10em;
+  overflow: hidden;
 }
-.background-img{
-    width: 100%;
+nav li {
+  display: inline;
+  justify-content: space-between;
 }
-.container {
-    background-image: url();
-    background-color: #cccccc; 
-    width: 1880px;
-    height: 1200px;
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-size: 1500px 700px; 
+.start-menu{
+  position: absolute;
+  background-color: lightblue;
+  z-index: 10;
 }
-div > img {
-    position: absolute;
-    width: 12%;
+#game-title{
+  position: relative;
+  display: flex;
+  top: 10%;
+  font-size: 20px;
+  justify-content: center;
 }
-.mouse-hero{
-    left: 20%;
-    top: 43%;
+.start-menu > h2{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 60%;
+  font-size: 10px;
+}
+#Action_Points ,
+#game-title-always{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: brown;
+}
+.background-img {
+  position: relative;
+  width: 400px;
+}
+.game-container {
+  background-color: brown;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 400px;
+}
+.mouse-hero {
+  position: absolute;
+  width: 60px;
+  left: 600px;
+  top: 500px;
+}
+.Enemies {
+  position: absolute;
+  width: 40px;
+  left: 75%;
+  top: 59%;
+}
+.EnemiesDead {
+  display: none;
+}
+.panel {
+  display: grid;
+  position: relative;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  margin-top: 50px;
+  /* display: none; */
+  width: 50%;
+  justify-content: center;
+  left: 25%;
+}
+.item_panel {
+  position: absolute;
+  background-color: lightgreen;
+  width: 100%;
+  display: none;
+}
+.skill_panel {
+  position: absolute;
+  background-color: lightgreen;
+  width: 100%;
+  display: none;
+}
+.item_panel > p {
+  padding-left: 5em;
+  border: 1px solid black;
+}
+.skill_panel > p {
+  padding-left: 5em;
+  border: 1px solid black;
+}
+.panel > h2 {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.end_bad{
+  position: absolute;
+  background-color: lightblue;
+  z-index: 11;
+  top: 50px;
+  width: 400px;
+}
+
+.hero-healthBar { 
+  position: absolute;
+  width: 100px; 
+  height: 10px;
+  background-color: #e5e5e5;
+  margin-bottom: 24px;
+  top: 200px;
+  left: 50px;
+}
+.hero-healthBar #progress1 {
+  width: 50%;
+  height: inherit;
+  background-color: red;
+}
+@media screen and (max-width: 500px){
+  #game-title-always{
+    margin-top: -100px;
+  }
+  .game-container, #game-title-always, #Action_Points,.background-img{
+    width: 470px;
+  }
+  .mouse-hero {
+    left: 75px;
+    top: 120px;
+  }
+  .start-menu{
+    width: 485px;
+    height: 180px;
+  }
+  .start-menu > h2{
+    top: 50px;
+  }
+}
+@media screen and (min-width: 1900px){
+  *{
+    background-color: beige;
+  }
+  .mouse-hero {
+    left: 75px;
+    top: 120px;
+  }
 }
