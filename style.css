@@ -4,6 +4,7 @@
 .start-menu{
   display: none;
 }
+/* Navigation bar sytle  */
 nav {
   display: flex;
   justify-content: space-between;
@@ -19,6 +20,7 @@ nav li {
   display: inline;
   justify-content: space-between;
 }
+/* Start screen */
 .start-menu{
   position: absolute;
   background-color: lightblue;
@@ -38,13 +40,21 @@ nav li {
   top: 60%;
   font-size: 10px;
 }
-#Action_Points ,
+/* Game name and Action Points style */
 #game-title-always{
   text-align: center;
   margin: 0;
   padding: 0;
   background-color: brown;
 }
+.Action_Points {
+  text-align: center;
+  background-color: brown;
+}
+.Action_Points > h1{
+  display: inline;
+}
+/* All playable img style */
 .background-img {
   position: relative;
   width: 400px;
@@ -72,6 +82,7 @@ nav li {
 .EnemiesDead {
   display: none;
 }
+/* Game Control Interface */
 .panel {
   display: grid;
   position: relative;
@@ -108,14 +119,20 @@ nav li {
   border: 1px solid rgba(0, 0, 0, 0.8);
   text-align: center;
 }
+/* End of game */
 .end_bad{
   position: absolute;
   background-color: lightblue;
   z-index: 11;
-  top: 50px;
-  width: 400px;
+  top: 110px;
+  width: 500px;
+  height: 300px;
+  display: none;
 }
-
+.end_bad > *{
+  text-align: center;
+}
+/*health Bar style*/
 .hero-healthBar { 
   position: absolute;
   width: 100px; 
@@ -130,6 +147,23 @@ nav li {
   height: inherit;
   background-color: red;
 }
+.Enemies-healthBar { 
+  position: absolute;
+  width: 100px; 
+  height: 10px;
+  background-color: #e5e5e5;
+  margin-bottom: 24px;
+  top: 200px;
+  left: 325px;
+}
+.Enemies-healthBar #progress2 {
+  width: 100%;
+  height: inherit;
+  background-color: red;
+}
+
+
+
 @media screen and (max-width: 500px){
   #game-title-always{
     margin-top: -100px;

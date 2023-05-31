@@ -1,23 +1,26 @@
 const attackMove = {
-  pos: 0,
-  getPosition: function () {
-    return document.querySelector(".mouse-hero").offsetLeft;
+  getPosition: function (pos) {
+    return document.querySelector(pos).offsetLeft;
   },
   attMove: function () {
     (att = document.getElementById("attack")),
       att.addEventListener("click", () => {
-        this.myAtt();
+        let myHealth = new HealthBar('enemies')
+        this.myAtt(".mouse-hero",0);
+        //damage
+        myHealth.damageTake(5)
+        this.myAtt(".Enemies",20)
       });
   },
 
-  myAtt: function () {
-    let elem = document.querySelector(".mouse-hero");
-    let num = this.getPosition();
-    let pos = this.getPosition();
+  myAtt: function (selector,time) {
+    let elem = document.querySelector(selector);
+    let num = this.getPosition(selector);
+    let pos = this.getPosition(selector);
     const posX = pos + 10;
     let id = null;
     clearInterval(id);
-    id = setInterval(frame, 0);
+    id = setInterval(frame, time);
     function frame() {
       if (pos == posX) {
         clearInterval(id);
