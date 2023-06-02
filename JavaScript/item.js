@@ -12,4 +12,3 @@ const PotionItem = [
         effect:10,
     }
 ]
-// console.log(Potion.find(x => {x.id === '0'}));
