@@ -5,11 +5,11 @@ const attackMove = {
   attMove: function () {
     (att = document.getElementById("attack")),
       att.addEventListener("click", () => {
-        let myHealth = new HealthBar('enemies')
+        let Health = new HealthBar('enemies')
         this.myAtt(".mouse-hero",0);
-        //damage
-        myHealth.damageTake(5)
+        Health.damageTake(5)
         this.myAtt(".Enemies",20)
+        panel.APUse()
       });
   },
 

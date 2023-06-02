@@ -99,16 +99,19 @@ nav li {
   background-color: lightgreen;
   width: 100%;
   display: none;
+  justify-content: center;
+  text-align: center;
+}
+.item_panel > p {
+  margin: 2px;
+  padding: 5px;
+  border: 1px solid black;
 }
 .skill_panel {
   position: absolute;
   background-color: lightgreen;
   width: 100%;
   display: none;
-}
-.item_panel > p {
-  padding-left: 5em;
-  border: 1px solid black;
 }
 .skill_panel > p {
   padding-left: 5em;
@@ -130,7 +133,14 @@ nav li {
   display: none;
 }
 .end_bad > *{
+  display:flex;
+  justify-content: space-around;
+}
+#bad_score,#bad_text{
+  display: inline;
   text-align: center;
+  position: relative;
+  left: 200px;
 }
 /*health Bar style*/
 .hero-healthBar { 
@@ -161,9 +171,6 @@ nav li {
   height: inherit;
   background-color: red;
 }
-
-
-
 @media screen and (max-width: 500px){
   #game-title-always{
     margin-top: -100px;

@@ -23,7 +23,19 @@ class HealthBar {
         }
         if (this.type === 'enemies'){
             let bar = document.querySelector('#progress2')
-            bar.style.width = (bar.offsetWidth - damage)+ "px"
+            if(bar.offsetWidth-damage === 0){
+                bar.style.width = (bar.offsetWidth - damage)+ "px"
+                document.querySelector(".Enemies").remove()
+                document.querySelector(".Enemies-healthBar").remove()
+                startMenu.End()
+            }
+            else{bar.style.width = (bar.offsetWidth - damage)+ "px"}
         }
     }
+}
+function addHealth(health) {
+    let bar = document.querySelector('#progress1')
+    let he = health.effect
+    bar.style.width = (bar.offsetWidth + he)+ "px"
+    item_panel.deleteItem(health)
 }
