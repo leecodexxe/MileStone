@@ -10,5 +10,11 @@ const PotionItem = [
         name:'Big Healing Potion',
         type:'healing',
         effect:10,
+    },
+    {
+        id:2,
+        name:'Maga Healing Potion',
+        type:'healing',
+        effect:20,
     }
 ]

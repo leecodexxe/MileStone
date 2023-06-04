@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="./JavaScript/attack.js"></script>
-    <script type="text/javascript" src="./JavaScript/defnece.js"></script>
-    <script type="text/javascript" src="./JavaScript/item.js"></script>
-    <script type="text/javascript" src="./JavaScript/skill.js"></script>
-    <script type="text/javascript" src="./JavaScript/panel.js"></script>
-    <script type="text/javascript" src="./JavaScript/Equipment.js"></script>
-    <script type="text/javascript" src="./JavaScript/Potion.js"></script>
-    <script type="text/javascript" src="./JavaScript/health.js"></script>
-    <script type="text/javascript" src="./index.js"></script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="https://liqiuzhiyang.netlify.app">Home</a> |</li>
-        <li><a href="https://liqiuzhiyang.netlify.app/about">About me</a> |</li>
-        <li>
-          <a href="https://liqiuzhiyang.netlify.app/projects">More projects</a>
-          |
-        </li>
-        <li><a href="https://liqiuzhiyang.netlify.app/license">License</a></li>
-      </ul>
-    </nav>
-    <h1 id="game-title-always">Roguelike Game</h1>
-    <div class="start-menu">
-      <h1 id="game-title">Lee's Game</h1>
-      <h2 id="startbottom">Start</h2>
-      <h2>Setting</h2>
-      <h2>Credit</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="text/javascript" src="./JavaScript/attack.js"></script>
+  <script type="text/javascript" src="./JavaScript/defence.js"></script>
+  <script type="text/javascript" src="./JavaScript/item.js"></script>
+  <script type="text/javascript" src="./JavaScript/skill.js"></script>
+  <script type="text/javascript" src="./JavaScript/panel.js"></script>
+  <script type="text/javascript" src="./JavaScript/Equipment.js"></script>
+  <script type="text/javascript" src="./JavaScript/Potion.js"></script>
+  <script type="text/javascript" src="./JavaScript/hero.js"></script>
+  <script type="text/javascript" src="./JavaScript/Enemies.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="https://liqiuzhiyang.netlify.app">Home</a> |</li>
+      <li><a href="https://liqiuzhiyang.netlify.app/about">About me</a> |</li>
+      <li>
+        <a href="https://liqiuzhiyang.netlify.app/projects">More projects</a>
+        |
+      </li>
+      <li><a href="https://liqiuzhiyang.netlify.app/license">License</a></li>
+    </ul>
+  </nav>
+  <h1 id="game-title-always">Roguelike Game</h1>
+  <div class="start-menu">
+    <h1 id="game-title">Lee's Game</h1>
+    <h2 id="startbottom">Start</h2>
+    <h2>Setting</h2>
+    <h2>Credit</h2>
+  </div>
+  <div class="game-container">
+    <img class="background-img" src="./img/2212.w015.n003.1098A.p30.1098.jpg" alt="" />
+    <img class="mouse-hero" src="./img/sava-mouseknightpixelart.png" alt="" />
+    <div class="shield">
+      <img src="./img/Shield.png" alt="">
+      <p id="shield_point">0</p>
     </div>
-    <div class="game-container">
-      <img
-        class="background-img"
-        src="./img/2212.w015.n003.1098A.p30.1098.jpg"
-        alt=""
-      />
-      <div class="hero-healthBar">
-        <div id="progress1"></div>
-      </div>
-      <img class="mouse-hero" src="./img/sava-mouseknightpixelart.png" alt="" />
-      <img class="Enemies" src="./img/48436.png" alt="" />
-      <div class="Enemies-healthBar">
-        <div id="progress2"></div>
-      </div>
+    <div class="hero-healthBar">
+      <div id="progress1"></div>
     </div>
-    <div class="Action_Points">
-      <h1>Action Points:</h1>
-      <h1 id="curr_point">5</h1>
-      <h1 id="max_point">/5</h1>
+    <img class="Enemies" src="./img/48436.png" alt="" />
+    <div class="shield_ene">
+      <img src="./img/Shield.png" alt="">
+      <p id="shield_point_ene">0</p>
     </div>
-    <div class="panel">
-      <h2 id="attack">ATTACK</h2>
-      <h2 id="defense">DEFENSE</h2>
-      <h2 id="item">ITEM</h2>
-      <h2 id="skill">SKILL</h2>
-      <div class="item_panel">
-        <p id="quitItem">0.quit</p>
-      </div>
-      <div class="skill_panel">
-        <p id="quitSkill">0.skill</p>
-      </div>
+    <div class="Enemies-healthBar">
+      <div id="progress2"></div>
     </div>
-    <div class="end_bad">
-      <h1>You Lost</h1>
-      <h2 id="bad_text">score:</h2>
-      <h2 id="bad_score"></h2>
-      <h2>Try Again?</h2>
+    <img class="goArr" src="./img/240_F_270141535_1TyZUpBvDV7qndvxtrcvlqJQHYU0r5Wj.png" alt="" />
+  </div>
+  <div class="Action_Points">
+    <h1>Action Points:</h1>
+    <h1 id="curr_point">5</h1>
+    <h1>/</h1>
+    <h1 id="max_point">5</h1>
+  </div>
+  <div class="log">
+    <h3>Log:</h3>
+    <p id="log_message"></p>
+  </div>
+  <div class="panel">
+    <h2 id="attack">ATTACK</h2>
+    <h2 id="defense">BLOCK</h2>
+    <h2 id="item">ITEM</h2>
+    <h2 id="skill">SKILL</h2>
+    <div class="item_panel">
+      <p id="quitItem">0.quit</p>
     </div>
-  </body>
+    <div class="skill_panel">
+      <p id="quitSkill">0.Quit</p>
+    </div>
+  </div>
+  <div class="end_bad">
+    <h1>You Lost</h1>
+    <h2 id="bad_text">score:</h2>
+    <h2 id="bad_score"></h2>
+    <h2>Try Again?</h2>
+  </div>
+</body>
+
 </html>
