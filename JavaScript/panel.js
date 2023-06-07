@@ -30,7 +30,6 @@ const panel = {
       this.index("3");
     });
     item.addEventListener("click", (e) => {
-      console.log(e);
       if (e.target.id === "quitItem") {
         this.index();
       } else {
@@ -49,7 +48,7 @@ const panel = {
       if (e.target.id === "quitSkill") {
         this.index();
       } else {
-        skill_panel.useSkill(e.target.id);
+        skill_panel.useSkill(e.target.textContent);
       }
     });
   },
@@ -70,7 +69,6 @@ const panel = {
     let ap = document.querySelector("#curr_point").textContent;
     let max = document.querySelector("#max_point").textContent;
     ap = max;
-    console.log(ap);
     document.querySelector("#curr_point").textContent = ap;
     document.getElementById("attack").style.backgroundColor = "white";
     document.getElementById("defense").style.backgroundColor = "white";
@@ -112,18 +110,17 @@ const startMenu = {
   },
 };
 const item_panel = {
-  random: function (max) {
-    return Math.floor(Math.random() * max);
+  random: function () {
+    return Math.floor(Math.random() * PotionItem.length);
   },
   displayitem: function () {
-    let int = this.random(3);
-    this.additem(PotionItem[int]);
+    this.additem(PotionItem[this.random()]);
   },
   additem: function (itemList) {
     const itemMenu = document.querySelector(".item_panel");
     let item = document.createElement("p");
     log.itemlog(itemList.name);
-    item.innerText = itemList.name;
+    item.innerText = item.innerText + itemList.name;
     item.id = itemList.name;
     itemMenu.appendChild(item);
   },
@@ -142,36 +139,41 @@ const item_panel = {
   },
 };
 const skill_panel = {
-  random: function (max) {
-    return Math.floor(Math.random() * max);
+  random: function () {
+    return Math.floor(Math.random() * skillList.length);
   },
   displayskill: function () {
-    let int = this.random(5);
-    this.addskill(skillList[int]);
+    this.addskill(skillList[this.random()]);
   },
   addskill: function (skillList) {
+    console.log(skillList)
     const skillMenu = document.querySelector(".skill_panel");
     let skill = document.createElement("p");
-    log.itemlog(skillList.name);
+    let length = skillMenu.children.length
+    let isture = forEach(skillList.id,length,skillMenu.children)
+    console.log(isture)
+    if (isture === true){
+      log.itemlog(skillList.name+" level UP!");
+      let skillexe = document.getElementById(skillList.id)
+      skillexe.innerText = skillexe.innerText + " +1"
+    }else{
+      log.itemlog(skillList.name);
     skill.innerText = skillList.name;
-    skill.id = skillList.name;
+    skill.id = skillList.id;
     skillMenu.appendChild(skill);
+    }
   },
   useSkill: function (skill) {
     let i = skillList.find((element) => element.name === skill);
     let ap = document.querySelector("#curr_point").textContent;
-    console.log(ap);
     if (ap >= i.APU) {
       if (i.type === "attSkill") {
-        console.log(i.type);
         document.querySelector("#curr_point").textContent = ap - i.APU;
       }
       if (i.type === "defSkill") {
-        console.log(i.type);
         document.querySelector("#curr_point").textContent = ap - i.APU;
       }
       if (i.type === "leechSkill") {
-        console.log(i.type);
         document.querySelector("#curr_point").textContent = ap - i.APU;
       }
     } else {
@@ -201,6 +203,16 @@ const log = {
     log.innerText = ""
   }
 };
-function close1() {
-    window.close();
+function toClose() {
+  window.close();
+}
+function toREstart() {
+  location.reload();
+}
+function forEach(item,length,exeSkill){
+  for (let i = 0; i < length;i++){
+    if (item == exeSkill[i].id){
+      return true
+    }
+  }
 }

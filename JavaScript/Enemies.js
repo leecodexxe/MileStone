@@ -2,14 +2,15 @@ const Enemies = {
     damage: 0,
     block: 0,
     expGet: 0,
+    stage:1,
     num: function (min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     startGame: function () {
-        this.damage = this.num(12, 24);
-        this.block = this.num(5,5)
+        this.damage = this.num(0, 50);
+        this.block = this.num(0,15)
         this.expGet = this.num(500, 600)
         let shield = document.querySelector('#shield_point_ene')
         shield.textContent = this.block
@@ -24,21 +25,22 @@ const Enemies = {
         let bar = document.querySelector("#progress2");
         let shield = document.querySelector('#shield_point_ene')
         let block = Number(shield.textContent)
-        log.attlog(attackMove.heroDamage)
         if(damage > block){
         let num = damage - block
+        log.attlog(num)
+        shield.textContent = 0
         if (bar.offsetWidth - num > 0) {
-            console.log(num)
-            shield.textContent = 0
             bar.style.width = bar.offsetWidth - num + "px";
         } else {
             document.querySelector(".Enemies").style.zIndex = "-10";
             document.querySelector(".Enemies-healthBar").style.zIndex = "-10";
             log.enmdeadlog();
-            item_panel.displayitem();
-            nextSatge();
+            nextSatge(difficulty(this.stage));
         }
-    }else{shield.textContent = Number(shield.textContent)-damage}
+    }else{
+        log.attlog(HealthBar.damage)
+        shield.textContent = Number(shield.textContent)-damage
+    }
     },
     damageDo: function () {
         attackMove.myHit(".mouse-hero", 20);
@@ -52,15 +54,22 @@ function num(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-function nextSatge() {
+function nextSatge(level) {
     let arrow = document.querySelector(".goArr");
-    log.cleanLog()
     arrow.style.zIndex = "5";
     setTimeout(panel.APStart, 10);
+    item_panel.displayitem()
+    skill_panel.displayskill()
     arrow.addEventListener("click", () => {
-        Enemies.currentHealth(100, 100);
+        Enemies.currentHealth(100*level, 100*level);
         document.querySelector(".Enemies").style.zIndex = "8";
         document.querySelector(".Enemies-healthBar").style.zIndex = "8";
         arrow.style.zIndex = "-5";
+        Enemies.startGame()
+        log.cleanLog()
     });
+}
+function difficulty(stage){
+    Enemies.stage = stage + 1
+    return 1 + stage*0.1
 }

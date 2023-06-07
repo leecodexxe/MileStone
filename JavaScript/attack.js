@@ -2,13 +2,12 @@ const attackMove = {
   getPosition: function (pos) {
     return document.querySelector(pos).offsetLeft;
   },
-  heroDamage: 5,
   attAP: 1,
   attMove: function () {
     (att = document.getElementById("attack")),
       att.addEventListener("click", () => {
         this.soundHit()
-        Enemies.damageTake(attackMove.heroDamage)
+        Enemies.damageTake(HealthBar.damage)
         this.myAtt(".mouse-hero", 0);
         this.myAtt(".Enemies", 20)
         panel.APUse(this.attAP)
