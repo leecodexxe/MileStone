@@ -201,3 +201,6 @@ const log = {
     log.innerText = ""
   }
 };
+function close1() {
+    window.close();
+}

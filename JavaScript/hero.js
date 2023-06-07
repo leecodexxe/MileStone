@@ -12,7 +12,21 @@ const HealthBar = {
     let dam = damage - this.block
     this.block = this.block - damage
     let bar = document.querySelector("#progress1");
-    bar.style.width = bar.offsetWidth - dam + "px";
+    // bar.style.width = bar.offsetWidth - dam + "px";
+    if(damage > block){
+      let num = damage - block
+      if (bar.offsetWidth - num > 0) {
+          console.log(num)
+          shield.textContent = 0
+          bar.style.width = bar.offsetWidth - num + "px";
+      } else {
+          document.querySelector(".Enemies").style.zIndex = "-10";
+          document.querySelector(".Enemies-healthBar").style.zIndex = "-10";
+          log.enmdeadlog();
+          item_panel.displayitem();
+      }
+  }else{shield.textContent = Number(shield.textContent)-damage}
+  }
   },
 
 }
