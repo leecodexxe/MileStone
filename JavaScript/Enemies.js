@@ -9,9 +9,17 @@ const Enemies = {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     startGame: function () {
-        this.damage = this.num(125, 125);
-        this.block = this.num(0,15)
-        this.expGet = this.num(500, 600)
+        if (this.stage === 1){
+            this.damage = this.num(125, 125);
+            this.block = this.num(0,15)
+            this.expGet = this.num(500, 600)
+        }
+        else{
+            let diff = difficulty()
+            this.damage = this.num(10*diff, 15*diff);
+            this.block = this.num(1*diff,15*diff)
+            this.expGet = this.num(500*diff, 600*diff)
+        }
         let shield = document.querySelector('#shield_point_ene')
         shield.textContent = this.block
     },
@@ -36,6 +44,7 @@ const Enemies = {
             document.querySelector(".Enemies-healthBar").style.zIndex = "-10";
             log.enmdeadlog();
             nextSatge(difficulty(this.stage));
+            Enemies.stage = stage + 1
         }
     }else{
         log.attlog(HealthBar.damage)
@@ -70,6 +79,5 @@ function nextSatge(level) {
     });
 }
 function difficulty(stage){
-    Enemies.stage = stage + 1
     return 1 + stage*0.1
 }
