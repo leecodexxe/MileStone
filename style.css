@@ -20,6 +20,13 @@ nav li {
   display: inline;
   justify-content: space-between;
 }
+body {
+  background-image: url("./img/187161.jpg");
+  background-color: #cccccc;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+ }
 /* Start screen */
 .start-menu{
   position: absolute;
