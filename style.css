@@ -134,6 +134,18 @@ body {
   justify-content: center;
   left: 25%;
 }
+#attack:hover{
+  background-color: lightblue;
+}
+#defense:hover{
+  background-color: lightblue;
+}
+#item:hover{
+  background-color: lightblue;
+}
+#skill:hover{
+  background-color: lightblue;
+}
 .item_panel {
   position: absolute;
   background-color: lightgreen;
@@ -168,6 +180,7 @@ body {
 }
 .log > *{
   display: inline;
+  color: white;
 }
 /* End of game */
 .end_bad{
