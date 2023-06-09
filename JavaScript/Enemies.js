@@ -44,7 +44,8 @@ const Enemies = {
             document.querySelector(".Enemies-healthBar").style.zIndex = "-10";
             log.enmdeadlog();
             nextSatge(difficulty(this.stage));
-            Enemies.stage = stage + 1
+            this.stage += 1
+            console.log(this.stage)
         }
     }else{
         log.attlog(HealthBar.damage)
@@ -78,6 +79,6 @@ function nextSatge(level) {
         log.cleanLog()
     });
 }
-function difficulty(stage){
-    return 1 + stage*0.1
+function difficulty(){
+    return 1 + Enemies.stage*0.1
 }
