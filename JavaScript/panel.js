@@ -86,6 +86,7 @@ const panel = {
       document.getElementById("defense").style.backgroundColor = "black";
       document.getElementById("item").style.backgroundColor = "black";
       document.getElementById("skill").style.backgroundColor = "black";
+      this.index()
       setTimeout(() => {
         Enemies.damageDo()
       }, 1000);
@@ -95,6 +96,7 @@ const panel = {
     document.querySelector("#max_point").textContent = maxAP;
   },
 };
+
 const startMenu = {
   start: function () {
     const start = document.querySelector(".start-menu");
@@ -168,24 +170,50 @@ const skill_panel = {
     let i = skillList.find((element) => element.name === skill);
     let ap = document.querySelector("#curr_point").textContent;
     if (ap >= i.APU) {
-      if (i.type === "attSkill") {
-        document.querySelector("#curr_point").textContent = ap - i.APU;
-        Enemies.damageTake(HealthBar.damage * i.effect)
-        attackMove.myAtt(".mouse-hero", 0);
-        attackMove.myAtt(".Enemies", 20)
-        attackMove.soundHit()
+      if(ap-i.APU === 0){
+        if (i.type === "attSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          Enemies.damageTake(HealthBar.damage * i.effect)
+          attackMove.myAtt(".mouse-hero", 0);
+          attackMove.myAtt(".Enemies", 20)
+          attackMove.soundHit()
+          panel.APUse()
+        }
+        if (i.type === "defSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          defence.adddef(i.effect)
+          panel.APUse()
+        }
+        if (i.type === "leechSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          Enemies.damageTake(HealthBar.damage * i.effect)
+          addHealth(HealthBar.damage * i.regan)
+          attackMove.myAtt(".mouse-hero", 0);
+          attackMove.myAtt(".Enemies", 20)
+          attackMove.soundHit()
+          panel.APUse()
+        }
       }
-      if (i.type === "defSkill") {
-        document.querySelector("#curr_point").textContent = ap - i.APU;
-        defence.adddef(i.effect)
-      }
-      if (i.type === "leechSkill") {
-        document.querySelector("#curr_point").textContent = ap - i.APU;
-        Enemies.damageTake(HealthBar.damage * i.effect)
-        addHealth(HealthBar.damage * i.regan)
-        attackMove.myAtt(".mouse-hero", 0);
-        attackMove.myAtt(".Enemies", 20)
-        attackMove.soundHit()
+      else{
+        if (i.type === "attSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          Enemies.damageTake(HealthBar.damage * i.effect)
+          attackMove.myAtt(".mouse-hero", 0);
+          attackMove.myAtt(".Enemies", 20)
+          attackMove.soundHit()
+        }
+        if (i.type === "defSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          defence.adddef(i.effect)
+        }
+        if (i.type === "leechSkill") {
+          document.querySelector("#curr_point").textContent = ap - i.APU;
+          Enemies.damageTake(HealthBar.damage * i.effect)
+          addHealth(HealthBar.damage * i.regan)
+          attackMove.myAtt(".mouse-hero", 0);
+          attackMove.myAtt(".Enemies", 20)
+          attackMove.soundHit()
+        }
       }
     } else {
       alert("Not enough AP!");
