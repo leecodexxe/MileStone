@@ -23,6 +23,7 @@ const HealthBar = {
         console.log("you dead")
         bar.style.width = bar.offsetWidth - bar.offsetWidth + "px";
         document.querySelector(".end_bad").style.display = "initial"
+        document.querySelector("#bad_score").textContent = Enemies.stage * 100
         document.querySelector(".panel").remove()
       }
           

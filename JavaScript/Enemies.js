@@ -9,7 +9,7 @@ const Enemies = {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     },
     startGame: function () {
-        this.damage = this.num(0, 50);
+        this.damage = this.num(125, 125);
         this.block = this.num(0,15)
         this.expGet = this.num(500, 600)
         let shield = document.querySelector('#shield_point_ene')
