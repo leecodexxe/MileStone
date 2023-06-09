@@ -1,5 +1,5 @@
 const HealthBar = {
-  damage: 100,
+  damage: 20,
   block: 5,
   expHave: 0,
   currentHealth: function (health, maxHealth) {
@@ -32,7 +32,7 @@ const HealthBar = {
 }
 function addHealth(health) {
   let bar = document.querySelector("#progress1");
-  let he = health.effect;
-  bar.style.width = bar.offsetWidth + he + "px";
-  item_panel.deleteItem(health);
+  let max = document.querySelector(".hero-healthBar").style.width;
+  console.log(max)
+  bar.style.width = bar.offsetWidth + health + "px";
 }

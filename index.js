@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", (event) => {
-    HealthBar.currentHealth(100)
+    HealthBar.currentHealth(50)
     Enemies.currentHealth(1,100)
     panel.KeyShortcut();
     panel.itemMoadlOnAndOff();

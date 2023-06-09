@@ -127,7 +127,8 @@ const item_panel = {
   useItem: function (item) {
     let i = PotionItem.find((element) => element.name === item);
     if (i.type === "healing") {
-      addHealth(i);
+      addHealth(i.effect);
+      this.deleteItem(i);
       let mySound = new Audio('./sound/ZQXTJNV-heal-lesser-healing.mp3')
       mySound.volume = 0.1
       mySound.play()
@@ -169,12 +170,22 @@ const skill_panel = {
     if (ap >= i.APU) {
       if (i.type === "attSkill") {
         document.querySelector("#curr_point").textContent = ap - i.APU;
+        Enemies.damageTake(HealthBar.damage * i.effect)
+        attackMove.myAtt(".mouse-hero", 0);
+        attackMove.myAtt(".Enemies", 20)
+        attackMove.soundHit()
       }
       if (i.type === "defSkill") {
         document.querySelector("#curr_point").textContent = ap - i.APU;
+        defence.adddef(i.effect)
       }
       if (i.type === "leechSkill") {
         document.querySelector("#curr_point").textContent = ap - i.APU;
+        Enemies.damageTake(HealthBar.damage * i.effect)
+        addHealth(HealthBar.damage * i.regan)
+        attackMove.myAtt(".mouse-hero", 0);
+        attackMove.myAtt(".Enemies", 20)
+        attackMove.soundHit()
       }
     } else {
       alert("Not enough AP!");

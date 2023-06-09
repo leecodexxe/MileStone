@@ -11,14 +11,14 @@ const skillList = [
     name: "Bash",
     type: "attSkill",
     APU: 2,
-    effect: 1.4,
+    effect: 1.5,
   },
   {
     id: 2,
     name: "Heavy Attack",
     type: "attSkill",
     APU: 3,
-    effect: 1.6,
+    effect: 2,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const skillList = [
     name: "Metallicize",
     type: "defSkill",
     APU: 2,
-    effect: 2.3,
+    effect: 2.5,
   },
   {
     id: 5,
@@ -40,5 +40,6 @@ const skillList = [
     type: "leechSkill",
     APU: 3,
     effect: 2,
+    regan:1.5
   },
 ];
