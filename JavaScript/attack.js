@@ -15,7 +15,7 @@ const attackMove = {
   },
   myAtt: function (selector, time) {
     let elem = document.querySelector(selector);
-    let num = this.getPosition(selector);
+    const num = this.getPosition(selector);
     let pos = this.getPosition(selector);
     const posX = pos + 10;
     let id = null;
@@ -33,7 +33,7 @@ const attackMove = {
   },
   myHit: function (selector, time) {
     let elem = document.querySelector(selector);
-    let num = this.getPosition(selector);
+    const num = this.getPosition(selector);
     let pos = this.getPosition(selector);
     const posX = pos - 10;
     let id = null;

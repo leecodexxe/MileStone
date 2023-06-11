@@ -97,6 +97,7 @@ const panel = {
   },
 };
 
+
 const startMenu = {
   start: function () {
     const start = document.querySelector(".start-menu");
@@ -141,6 +142,8 @@ const item_panel = {
     itemMenu.remove();
   },
 };
+
+
 const skill_panel = {
   random: function () {
     return Math.floor(Math.random() * skillList.length);
@@ -153,24 +156,24 @@ const skill_panel = {
     const skillMenu = document.querySelector(".skill_panel");
     let skill = document.createElement("p");
     let length = skillMenu.children.length
-    let isture = forEach(skillList.id,length,skillMenu.children)
+    let isture = forEach(skillList.id, length, skillMenu.children)
     console.log(isture)
-    if (isture === true){
-      log.itemlog(skillList.name+" level UP!");
+    if (isture === true) {
+      log.itemlog(skillList.name + " level UP!");
       let skillexe = document.getElementById(skillList.id)
       skillexe.innerText = skillexe.innerText + " +1"
-    }else{
+    } else {
       log.itemlog(skillList.name);
-    skill.innerText = skillList.name;
-    skill.id = skillList.id;
-    skillMenu.appendChild(skill);
+      skill.innerText = skillList.name;
+      skill.id = skillList.id;
+      skillMenu.appendChild(skill);
     }
   },
   useSkill: function (skill) {
     let i = skillList.find((element) => element.name === skill);
     let ap = document.querySelector("#curr_point").textContent;
     if (ap >= i.APU) {
-      if(ap-i.APU === 0){
+      if (ap - i.APU === 0) {
         if (i.type === "attSkill") {
           document.querySelector("#curr_point").textContent = ap - i.APU;
           Enemies.damageTake(HealthBar.damage * i.effect)
@@ -194,7 +197,7 @@ const skill_panel = {
           panel.APUse()
         }
       }
-      else{
+      else {
         if (i.type === "attSkill") {
           document.querySelector("#curr_point").textContent = ap - i.APU;
           Enemies.damageTake(HealthBar.damage * i.effect)
@@ -220,6 +223,8 @@ const skill_panel = {
     }
   },
 };
+
+
 const log = {
   itemlog: function (text) {
     let log = document.querySelector("#log_message");
@@ -242,15 +247,18 @@ const log = {
     log.innerText = ""
   }
 };
+//HTML onclick function
 function toClose() {
   window.close();
 }
+
 function toREstart() {
   location.reload();
 }
-function forEach(item,length,exeSkill){
-  for (let i = 0; i < length;i++){
-    if (item == exeSkill[i].id){
+
+function forEach(item, length, exeSkill) {
+  for (let i = 0; i < length; i++) {
+    if (item == exeSkill[i].id) {
       return true
     }
   }

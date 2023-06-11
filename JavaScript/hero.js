@@ -1,6 +1,6 @@
 const HealthBar = {
   damage: 20,
-  block: 25,
+  block: 5,
   expHave: 0,
   currentHealth: function (health, maxHealth) {
     let bar = document.querySelector("#progress1");
