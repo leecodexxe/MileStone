@@ -1,0 +1,235 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+  background-color: white;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  li {
+    display: inline;
+  }
+}
+
+body {
+  background-image: url("./img/187161.jpg");
+  background-color: #cccccc;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+
+/* Start screen */
+.start-menu {
+  position: absolute;
+  background-color: lightblue;
+  z-index: 10;
+
+  #game-title {
+    position: relative;
+    display: flex;
+    top: 10%;
+    font-size: 20px;
+    justify-content: center;
+  }
+
+  h2 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 60%;
+    font-size: 10px;
+  }
+}
+
+/* Game name and Action Points style */
+#game-title-always {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: brown;
+}
+
+.Action_Points {
+  text-align: center;
+  background-color: brown;
+
+  h1 {
+    display: inline;
+  }
+}
+
+/* All playable img style */
+.background-img {
+  position: relative;
+  width: 400px;
+}
+
+.game-container {
+  background-color: brown;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 400px;
+}
+
+.mouse-hero {
+  position: absolute;
+  width: 60px;
+  left: 600px;
+  top: 500px;
+}
+
+.Enemies {
+  position: absolute;
+  width: 50px;
+  right: 90px;
+  top: 120px;
+
+  &Dead {
+    display: none;
+  }
+}
+
+.goArr {
+  position: absolute;
+  width: 200px;
+  top: 50px;
+  left: 280px;
+  z-index: -8;
+}
+
+.shield {
+  > img,
+  > p {
+    position: absolute;
+    width: 40px;
+    top: 180px;
+    right: 295px;
+    text-align: center;
+  }
+}
+
+.shield_ene {
+  > img,
+  > p {
+    position: absolute;
+    width: 40px;
+    top: 180px;
+    right: 155px;
+    text-align: center;
+  }
+}
+
+/* Game Control Interface */
+.panel {
+  display: grid;
+  position: relative;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  margin-top: 50px;
+  display: none;
+  width: 50%;
+  justify-content: center;
+  left: 25%;
+
+  #attack,
+  #defense,
+  #item,
+  #skill {
+    &:hover {
+      background-color: lightblue;
+    }
+  }
+}
+
+.item_panel,
+.skill_panel {
+  position: absolute;
+  background-color: lightgreen;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  text-align: center;
+
+  p {
+    margin: 2px;
+    padding: 5px;
+    border: 1px solid black;
+  }
+}
+
+.panel {
+  h2 {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+  }
+}
+
+.log {
+  overflow: scroll;
+  height: 100px;
+
+  > * {
+    display: inline;
+    color: white;
+  }
+}
+
+/* End of game */
+.end_bad {
+  position: absolute;
+  background-color: lightblue;
+  display: none;
+  z-index: 11;
+  top: 110px;
+  width: 100%;
+  height: 65%;
+  text-align: center;
+
+  > * {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  h3 {
+    display: inline;
+  }
+
+  #bad_score,
+  #bad_text {
+    display: inline;
+  }
+}
+
+#go_home {
+  position: absolute;
+  color: white;
+  top: 50px;
+  left: 50px;
+  z-index: -10;
+}
+
+/* Health Bar style */
+.hero-healthBar,
+.Enemies-healthBar {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  background-color: #e5e5e5;
+  margin-bottom: 24px;
+  top: 200px;
+  left: 50px;
+
+  #progress1,
+  #progress2 {
+    width: 50%;
+    height: inherit;
+    background-color: red;
+  }
+}
